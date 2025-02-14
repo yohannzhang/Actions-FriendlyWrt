@@ -1,4 +1,13 @@
+name: Build For R5S and R5C
+
 on:
+  repository_dispatch:
+  workflow_dispatch:
+    inputs:
+      ssh:
+        description: 'SSH connection to Actions'
+        required: false
+        default: 'false'
   watch:
     types: started
 jobs:
