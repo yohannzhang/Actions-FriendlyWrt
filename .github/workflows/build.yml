@@ -1,4 +1,13 @@
+name: Build For R5S and R5C
+
 on:
+  repository_dispatch:
+  workflow_dispatch:
+    inputs:
+      ssh:
+        description: 'SSH connection to Actions'
+        required: false
+        default: 'false'
   watch:
     types: started
 jobs:
@@ -141,9 +150,9 @@ jobs:
 
     strategy:
       matrix:
-        VERSION: [21.02, 23.05]
-        CPU: [rk3328, rk3528, rk3399, rk3566, rk3568, rk3588]
-        SET: [docker, non-docker]
+        VERSION: [23.05]
+        CPU: [rk3568]
+        SET: [docker]
     steps:
     - name: Checkout
       uses: actions/checkout@main
