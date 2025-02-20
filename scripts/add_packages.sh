@@ -45,10 +45,13 @@ EOL
     [ -d luci-app-openclash ] && rm -rf luci-app-openclash
     git clone https://github.com/vernesong/OpenClash.git --depth 1 -b master luci-app-openclash
 })
+cat >> configs/rockchip/01-nanopi <<EOL
+CONFIG_PACKAGE_luci-app-openclash=y
+EOL
 
 curl -sL -m 30 --retry 2 https://raw.githubusercontent.com/vernesong/OpenClash/core/master/dev/clash-linux-arm64.tar.gz -o /tmp/clash.tar.gz
 file /tmp/clash.tar.gz
-tar zxvf /tmp/clash.tar.gz -C /tmp #>/dev/null 2>&1
+tar xvf /tmp/clash.tar.gz -C /tmp #>/dev/null 2>&1
 chmod +x /tmp/clash #>/dev/null 2>&1
 mkdir -p feeds/luci/applications/luci-app-openclash/root/etc/openclash/core
 mv /tmp/clash feeds/luci/applications/luci-app-openclash/root/etc/openclash/core/clash #>/dev/null 2>&1
@@ -60,7 +63,7 @@ chmod +x /tmp/clash #>/dev/null 2>&1
 mv /tmp/clash feeds/luci/applications/luci-app-openclash/root/etc/openclash/core/clash_tun #>/dev/null 2>&1
 
 curl -sL -m 30 --retry 2 https://raw.githubusercontent.com/vernesong/OpenClash/core/master/meta/clash-linux-arm64.tar.gz -o /tmp/clash.tar.gz
-tar zxvf /tmp/clash.tar.gz -C /tmp #>/dev/null 2>&1
+tar xvf /tmp/clash.tar.gz -C /tmp #>/dev/null 2>&1
 chmod +x /tmp/clash #>/dev/null 2>&1
 mv /tmp/clash feeds/luci/applications/luci-app-openclash/root/etc/openclash/core/clash_meta #>/dev/null 2>&1
 rm -rf /tmp/clash.tar.gz #>/dev/null 2>&1
