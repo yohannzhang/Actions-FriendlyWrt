@@ -11,6 +11,25 @@
 ### How to write image to eMMC  
 - First write the image to an SD card, then boot the system from the SD card, visit the FriendyWrt admin page, go to the menu "System" -> "eMMC Tools", upload the image file and flash it in directly, no need to decompress the file, after the flashing is completed, eject the SD card, the device will automatically reboot and boot from the eMMC.
 ### Changelog
+* 2025/12/31
+    * Updated to openwrt-24.10.4
+    * RK35xx kernel updated to 6.1.141
+* 2025/08/04
+    * RK35xx kernel updated to 6.1.118
+* 2025/07/09
+    *  Added support for NanoPi‑R76S
+    *  Fixed PWM fan control issue (using the pwm-fan driver module)
+* 2025/06/30
+    *  Updated to openwrt-24.10.2
+    *  Updated the kernel network-related configuration
+* 2025/06/25
+    *  Add support for NanoPi-R3S-LTS
+* 2025/06/06
+    *  Add support for NanoPi-M5
+    *  Add support for the RTL8851BU wireless adapter
+* 2025/03/24
+    * Fix insufficient inodes in the opt partition
+    * Re-enable the eMMC-Tools for devices with over 1G memory when booting from eMMC
 * 2025/02/28
     * Updated to openwrt-24.10.0
     * RK33xx kernel updated to 6.6.78+
